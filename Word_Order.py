@@ -1,17 +1,14 @@
-import collections
+n = int(input())
 
-n = int(raw_input())
-
-d = collections.OrderedDict()
+word_list = []
+word_dict = {}
 
 for i in range(n):
-    word = raw_input()
-    if word in d:
-        d[word] += 1
-    else:
-        d[word] = 1
+    word = input()
+    if word not in word_dict:
+        word_list.append(word)
+    word_dict[word] = word_dict.get(word, 0) + 1
 
-print len(d)
-
-for key, value in d.iteritems():
-    print value,
+print(len(word_list))
+for word in word_list:
+    print(word_dict[word], end=' ')
